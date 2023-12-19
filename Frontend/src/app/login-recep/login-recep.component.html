@@ -1,0 +1,15 @@
+<section class="app-login-recep">
+    <div>
+        <form #loginform="ngForm" (ngSubmit)="login(loginform.value)" align="center">
+            <h4>login here</h4>
+
+            <label for="userId"></label>
+            <input type="text" id="userId" name="receptionistId" ngModel required placeholder="User Id"> <br> <br>
+
+            <label for="userPassword"></label>
+            <input type="password"id="userPassword" name="receptionistPassword" ngModel required placeholder="Password"> <br> <br>
+            <button type="submit" value="submit">Login</button>
+        </form>
+    </div>
+  
+</section>

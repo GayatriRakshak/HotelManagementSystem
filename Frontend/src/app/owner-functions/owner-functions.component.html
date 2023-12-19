@@ -1,0 +1,90 @@
+<section class="app-owner-functions">
+    <h2 align="center">Owner Section</h2>
+    <div class="row">
+        <div class="col-lg-2">
+            <div class="owner-func-box">  <!--for coloring entire two columns -->
+                <div  class="owner-func-list">
+                    <ul class="owner-func-items" >
+                        <li (click)="goto('Update Profile')" >Update Profile</li>
+                        <li (click)="goto('Delete Owner')" >Delete Owner</li>
+                        <li (click)="goto('View Owner')" >View Owner</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-10">
+            <div class="tabs" *ngIf="ownerMenu=='Update Profile'" align="center">
+               <form #updateOwnerform="ngForm" (ngSubmit)="updateOwner(updateOwnerform.value);">
+                    <h3>Update Profile</h3>
+                   <label for="ownerId" >Owner Id</label> 
+                   <input type="text" id="ownerId" placeholder="Owner Id" required
+                             class="form-control w-50 m-2" ngModel name="ownerId" #oi="ngModel">
+                            <ng-container *ngIf="oi.touched">
+                                            <p class="error-msg" *ngIf="oi.errors?.['required']"> Owner id is required</p>
+                                            
+                            </ng-container> <br><br>
+
+                   <label for="ownerName" >Name</label>
+                   <input type="text" id="ownerName" placeholder="Enter Name"  required
+                             class="form-control w-50 m-2" ngModel name="ownerName" #on="ngModel">
+                            <ng-container *ngIf="on.touched">
+                                            <p class="error-msg" *ngIf="on.errors?.['required']"> Owner name is required</p>
+                                            
+                            </ng-container> <br><br>
+
+                   <label for="ownerPassword" >Password</label>
+                   <input type="password" id="ownerPassword" placeholder="Password" required
+                             class="form-control w-50 m-2" ngModel name="ownerPassword" #op="ngModel">
+                            <ng-container *ngIf="op.touched">
+                                            <p class="error-msg" *ngIf="op.errors?.['required']"> Owner password is required</p>
+                                            
+                            </ng-container> <br> <br>
+               
+                   <button type="submit" value="submit">Submit</button>
+               </form>   
+           </div>
+
+           <div class="tabs" *ngIf="ownerMenu=='Delete Owner'" align="center">
+            <form #deleteOwnerform="ngForm" (ngSubmit)="deleteOwner(deleteOwnerform.value);">
+                <h3>Owner Delete</h3>
+                <label for="ownerId" >Owner Id</label> 
+                <input type="text" id="ownerId" placeholder="Owner Id" required
+                             class="form-control w-50 m-2" ngModel name="ownerId" #y="ngModel">
+                            <ng-container *ngIf="y.touched">
+                                            <p class="error-msg" *ngIf="y.errors?.['required']"> Owner id is required</p>
+                                            
+                            </ng-container> <br> <br>
+
+                <button type="submit" value="submit">Submit</button>
+            </form>
+        </div>
+
+        <div class="tabs" *ngIf="ownerMenu=='View Owner'" align="center">
+            <form #viewOwnerform="ngForm" (ngSubmit)="viewOwner(viewOwnerform.value);">
+                <h3>Owner View</h3>
+                <label for="ownerId" >Owner Id</label> 
+                <input type="text" id="ownerId" placeholder="Owner Id" required
+                             class="form-control w-50 m-2" ngModel name="ownerId" #x="ngModel">
+                            <ng-container *ngIf="x.touched">
+                                            <p class="error-msg" *ngIf="x.errors?.['required']"> Owner id is required</p>
+                                            
+                            </ng-container><br> <br>
+
+                <button type="submit" value="submit">Submit</button>
+            </form>
+
+            <br> <br> <br>
+            <div class="ownerDetailsContent">
+                <h3 align="center">Owner Detail</h3>
+                <p>Owner Id is {{ownerDetail.ownerId}}</p>
+                <p>Owner Name is {{ownerDetail.ownerName}}</p>
+                <p>Owner Password is {{ownerDetail.ownerPassword}}</p>
+            </div>
+        </div>
+
+
+
+        </div>
+    </div>
+</section>

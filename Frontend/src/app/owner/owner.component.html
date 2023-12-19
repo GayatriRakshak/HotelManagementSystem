@@ -1,0 +1,37 @@
+<section class="app-owner">
+    <div class="row">
+        <div class="col-lg-2">
+            <div class="owner-box">  <!--for coloring entire two columns -->
+                <div  class="owner-list">
+                    <ul class="owner-items" >
+                        <li (click)="goto('Owner Section')" >Owner Section</li>
+                        <li (click)="goto('Admin Section')" >Admin Section</li>
+                        <li (click)="goto('Receptionist Section')" > Receptionist Section</li>
+                        <li (click)="goto('Room Section')" > Room Section</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-10">        
+            <div class="tabs" *ngIf="ownerMenu=='Owner Section'" align="center">
+                <app-owner-functions></app-owner-functions> 
+            </div> 
+
+            <div class="tabs" *ngIf="ownerMenu=='Admin Section'" align="center">
+               <app-admin-functions></app-admin-functions>
+            </div>
+
+            <div class="tabs" *ngIf="ownerMenu=='Receptionist Section'" align="center">
+                <app-recep-functions></app-recep-functions>
+            </div>
+
+            
+            <div class="tabs" *ngIf="ownerMenu=='Room Section'" align="center">
+                <app-room></app-room>
+            </div>
+        </div>
+    </div>
+</section>
+
+

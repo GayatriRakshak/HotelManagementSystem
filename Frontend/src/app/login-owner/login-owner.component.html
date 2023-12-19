@@ -1,0 +1,16 @@
+
+<section class="app-login-owner">
+    <div>
+        <form #ownerloginform="ngForm" (ngSubmit)="login(ownerloginform.value)" align="center">
+            <h4>login here</h4>
+
+            <label for="userId"></label>
+            <input type="text" id="userId" name="ownerId" ngModel required placeholder="User Id"> <br> <br>
+
+            <label for="userPassword"></label>
+            <input type="password"id="userPassword" name="ownerPassword" ngModel required placeholder="Password"> <br> <br>
+            <button type="submit" value="submit">Login</button>
+        </form>
+    </div>
+  
+</section>

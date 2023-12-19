@@ -1,0 +1,88 @@
+body {
+    margin: 0%;
+    padding: 0%;
+    background: url(/assets/11.jpg);
+    background-size: cover;
+    background-position: fixed;
+}
+
+section .login {
+    max-width: 540px;
+    position: absolute;
+    top: 30%;
+    left: 45%;
+    transform: translate(-50px, -50px);
+    background: transparent;
+    padding: 60px 32px;
+    text-align: center;
+    box-shadow: -1px 4px 28px 0px rgba(0, 0, 0, 0.7);
+}
+
+.login h3 {
+    font-size: 32px;
+    font-family: poping, sans-serif;
+    color: #000;
+    margin-top: 10px;
+}
+
+.text-box {
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    background: #fff;
+    margin: 5px 0;
+    padding: 5px 0;
+}
+
+.text-box input {
+    width: 100%;
+    background: none;
+    outline: none;
+    border: none;
+    font-size: 15px;
+}
+
+.text-box span {
+    width: 28px;
+    float: left;
+    text-align: center;
+    margin-top: 4px;
+}
+
+a {
+    float: left;
+    color: #fff;
+    text-decoration: none;
+    margin: 10px 0 10px 0;
+}
+
+a:hover {
+    text-decoration: black underline;
+}
+
+.btn input {
+    background: #000;
+    color: #fff;
+    border: none;
+    width: 100%;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.btn:hover input {
+    background: #fff;
+    color: #000;
+}
+
+.show {
+    position: absolute;
+    right: 50px;
+    font-weight: 700;
+    font-size: 10px;
+    display: none;
+    cursor: pointer;
+}
+
+.password:valid~.show {
+    display: block;
+}

@@ -1,0 +1,247 @@
+<section class="app-booking">
+    <h2 align="center">Booking Section</h2>
+    <div class="row">
+        <div class="col-lg-2">
+            <div class="booking-box">  <!--for coloring entire two columns -->
+                <div  class="booking-list">
+                    <ul class="booking-items" >
+                        <li (click)="goto('Check In')" >Check In</li>
+                        <li (click)="goto('Booking Extension')" >Booking Extension</li>
+                        <li (click)="goto('Booking Reduction')" >Booking Reduction</li>
+                        <li (click)="goto('Check Out')">Check Out</li>
+                        <li (click)="goto('Payment')" >Payment</li>
+                        <li (click)="goto('View Booking')" >View Booking</li>
+                        <li (click)="goto('View All Booking')" >View All Booking</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-10">
+            <div class="booking-content">
+                <div class="tabs" *ngIf="bookingMenu=='Check In'" >
+                    <div class="checkIn" align="center">
+                        <form #checkInform="ngForm" (ngSubmit)="checkIn(checkInform.value);">
+                            <h3>Check In</h3>
+                            <label for="custName" >Customer Name</label> 
+                            <input type="text" id="custName" placeholder="Enter customer name" required
+                            maxlength="20" class="form-control w-50 m-2" ngModel name="custName" #un="ngModel">
+                            <ng-container *ngIf="un.touched">
+                                            <p class="error-msg" *ngIf="un.errors?.['required']">customer Name is required</p>
+                                            <p class="error-msg" *ngIf="un.errors?.['maxlength']">maximum 15 characters allowed</p>
+                            </ng-container> <br><br>
+
+                            <label for="custContact" >Customer Mobile No</label> 
+                            <input type="number" id="custContact" placeholder="Enter Mobile No" required
+                            maxlength="10" class="form-control w-50 m-2" ngModel name="custContact" #a="ngModel">
+                            <ng-container *ngIf="a.touched">
+                                            <p class="error-msg" *ngIf="a.errors?.['required']">contact Number is required</p>
+                                            <p class="error-msg" *ngIf="a.errors?.['maxlength']">maximum 10 digits allowed</p>
+                            </ng-container> <br><br>
+
+                            <label for="noOfDays" >No of days</label>
+                            <input type="number" id="noOfDays" placeholder="No of days you want to book" required
+                             class="form-control w-50 m-2" ngModel name="noOfDays" #b="ngModel">
+                            <ng-container *ngIf="a.touched">
+                                            <p class="error-msg" *ngIf="b.errors?.['required']"> Number of days is required</p>
+                                            
+                            </ng-container> <br><br>
+
+                            <label for="noOfPersons" >No of persons</label>
+                            <input type="number" id="noOfPersons" placeholder="how many persons?" required
+                             class="form-control w-50 m-2" ngModel name="noOfPersons" #c="ngModel">
+                            <ng-container *ngIf="c.touched">
+                                            <p class="error-msg" *ngIf="c.errors?.['required']"> Number of persons required</p>
+                                            
+                            </ng-container> <br><br>
+
+                            <label for="roomNo" >Room Number</label>  
+                            <input type="number" id="roomNo" required
+                            class="form-control w-50 m-2" ngModel name="roomNo" #d="ngModel">
+                            <ng-container *ngIf="d.touched">
+                                            <p class="error-msg" *ngIf="d.errors?.['required']">Room Number is required</p>
+                                            
+                            </ng-container> <br><br>
+                            
+
+                            <label for="advance" >Advance</label> 
+                            <input type="number" id="advance" placeholder="Enter advance amount" required
+                             class="form-control w-50 m-2" ngModel name="advance" #f="ngModel">
+                            <ng-container *ngIf="f.touched">
+                                            <p class="error-msg" *ngIf="f.errors?.['required']">Advance is required</p>
+                
+                            </ng-container> <br><br>
+
+                            <button type="submit" value="submit">Submit</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="tabs" *ngIf="bookingMenu=='Booking Extension'" align="center">
+                    <form #bookextenstionform="ngForm" (ngSubmit)="bookingExtension(bookextenstionform.value);">
+                        <h3>Booking Extension</h3>
+                        <label for="bookingId" >Booing Id</label> 
+                        <input type="text" id="bookingId" placeholder="Your Booking Id" required
+                        class="form-control w-50 m-2" ngModel name="bookingId" #g="ngModel">
+                       <ng-container *ngIf="g.touched">
+                                       <p class="error-msg" *ngIf="g.errors?.['required']"> Booking id is required</p>
+                                       
+                       </ng-container><br><br>
+
+                        <label for="noOfDays" >Extension Days</label>
+                        <input type="text" id="noOfDays" placeholder="No of days you want to extend" required
+                        class="form-control w-50 m-2" ngModel name="noOfDays" #h="ngModel">
+                       <ng-container *ngIf="h.touched">
+                                       <p class="error-msg" *ngIf="h.errors?.['required']"> Number of extension days is required</p>
+                                       
+                       </ng-container><br><br>
+                
+                        <button type="submit" value="submit">Submit</button>
+                    </form>
+                </div>
+
+                <div class="tabs" *ngIf="bookingMenu=='Booking Reduction'" align="center">
+                    <form #bookReductionform="ngForm" (ngSubmit)="bookingReduction(bookReductionform.value);">
+                        <h3>Booking Reduction</h3>
+                        <label for="bookingId" >Booing Id</label> 
+                        <input type="text" id="bookingId" placeholder="Your Booking Id" required
+                        class="form-control w-50 m-2" ngModel name="bookingId" #i="ngModel">
+                       <ng-container *ngIf="i.touched">
+                                       <p class="error-msg" *ngIf="i.errors?.['required']"> Booling id is required</p>
+                                       
+                       </ng-container><br><br>
+
+                        <label for="noOfDays" >Reduction Days</label>
+                        <input type="text" id="noOfDays" placeholder="No of days you want to reduce" required
+                        class="form-control w-50 m-2" ngModel name="noOfDays" #j="ngModel">
+                       <ng-container *ngIf="j.touched">
+                                       <p class="error-msg" *ngIf="j.errors?.['required']"> Reduction number of days is required</p>
+                                       
+                       </ng-container> <br><br>
+                        
+                        
+                        <button type="submit" value="submit">Submit</button>
+                    </form>
+                </div>
+
+                <div class="tabs" *ngIf="bookingMenu=='Check Out'" align="center">
+                    <form #CheckOutform="ngForm" (ngSubmit)="checkOut(CheckOutform.value);">
+                        <h3>Check Out</h3>
+                        <label for="bookingId" >Booing Id</label> 
+                        <input type="text" id="bookingId" placeholder="Your Booking Id" required
+                        class="form-control w-50 m-2" ngModel name="bookingId" #k="ngModel">
+                       <ng-container *ngIf="k.touched">
+                                       <p class="error-msg" *ngIf="k.errors?.['required']"> Booking Id is required</p>
+                                       
+                       </ng-container> <br><br>
+
+                        <button type="submit" value="submit">Submit</button>
+                    </form>
+                </div>
+
+                <div class="tabs" *ngIf="bookingMenu=='Payment'" align="center" >
+                    <form #paymentform="ngForm" (ngSubmit)="payment(paymentform.value);">
+                        <h3>Payment</h3>
+                        <label for="bookingId" >Booing Id</label> 
+                        <input type="text" id="bookingId" placeholder="Your Booking Id" required
+                        class="form-control w-50 m-2" ngModel name="bookingId" #m="ngModel">
+                       <ng-container *ngIf="m.touched">
+                                       <p class="error-msg" *ngIf="m.errors?.['required']"> Your booking id  is required</p>
+                                       
+                       </ng-container><br><br>
+
+                        <label for="payment" >Amount</label>
+                        <input type="text" id="payment" placeholder="Enter amount" required
+                        class="form-control w-50 m-2" ngModel name="payment" #l="ngModel">
+                       <ng-container *ngIf="l.touched">
+                                       <p class="error-msg" *ngIf="l.errors?.['required']"> Amount is required</p>
+                                       
+                       </ng-container> <br><br>
+                    
+                        <button type="submit" value="submit">Submit</button>
+                    </form>
+                </div>
+
+                <div class="tabs" *ngIf="bookingMenu=='View Booking'" align="center">
+                    <form #bookViewform="ngForm" (ngSubmit)="viewBooking(bookViewform.value);">
+                        <h3>View Booking</h3>
+                        <label for="bookingId" >Booing Id</label> 
+                        <input type="text" id="bookingId" placeholder="Your Booking Id" required
+                        class="form-control w-50 m-2" ngModel name="bookingId" #n="ngModel">
+                       <ng-container *ngIf="n.touched">
+                                       <p class="error-msg" *ngIf="n.errors?.['required']"> Booking Id is required</p>
+                                       
+                       </ng-container> <br><br>
+
+                        <button type="submit" value="submit">Submit</button>
+                    </form>
+
+                    <div class="bookingDetais">
+                        <h3 align="center">Booking Details</h3>
+                        <p> Booking id is {{bookingDetails.bookingId}}</p> <br>
+                        <p> Customer Name is {{bookingDetails.custName}}</p> <br>
+                        <p>Customer Contact Number is {{bookingDetails.custContact}}</p><br>
+                        <p>No of Days booked is {{bookingDetails.noOfDays}}</p> <br>
+                        <p>No of persons are {{bookingDetails.noOfPersons}}</p> <br>
+                        <p>Check In date is {{bookingDetails.cid}}</p> <br>
+                        <p>Check out Date is {{bookingDetails.cod}}</p> <br>
+                        <p>Room No is {{bookingDetails.roomNo}}</p> <br>
+                        <p>Total Amount {{bookingDetails.totalAmount}} rupees</p> <br>
+                        <p>advance is {{bookingDetails.advance}} rupees</p> <br>
+                        <p>Paid amount till now is {{bookingDetails.payment}}</p> <br>
+                        <p>Balance Amount is {{bookingDetails.balance}}</p> <br>    
+                    </div>
+                </div>
+
+                <div class="tabs" *ngIf="bookingMenu=='View All Booking'" >
+                    <form #viewAllbookingform="ngForm" (ngSubmit)="viewAllbooking();">
+                        <h3>Booking List</h3>
+                       <label>To view all the bookings</label>
+                       <button type="submit" value="submit">Click here</button>
+                    </form>
+
+                    <br> <br> <br>
+                    <div class="allBookingContent">
+                        <h3 align="center">All Booking Details</h3>
+                        <table border="1">
+                            <tr>
+                                <th>Booknig Id</th>
+                                <th>Customer Name</th>
+                                <th>Customer Contact</th>
+                                <th>No of Days</th>
+                                <th>No of persons</th>
+                                <th>Check In Date</th>
+                                <th>Room No</th>
+                                <th>Advance</th>
+                                <th>Total Amount</th>
+                                <th>Paid Amount</th>
+                                <th>Balance</th>
+                                <th>Check Out Date</th>
+                            </tr>
+                            
+                            <tbody >
+                                <tr *ngFor="let ab of allbooking" >
+                                    <td>{{ab.bookingId}}</td>
+                                    <td>{{ab.custName}}</td>
+                                    <td>{{ab.custContact}}</td>
+                                    <td>{{ab.noOfDays}}</td>
+                                    <td>{{ab.noOfPersons}}</td>
+                                    <td>{{ab.cid}}</td>
+                                    <td>{{ab.roomNo}}</td>
+                                    <td>{{ab.advance}}</td>
+                                    <td>{{ab.totalAmount}}</td>
+                                    <td>{{ab.payment}}</td>
+                                    <td>{{ab.balance}}</td>
+                                    <td>{{ab.cod}}</td>  
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            
+            </div>
+        </div>
+    </div>
+    
+</section>

@@ -1,0 +1,128 @@
+<section class="app-room">
+    <h2 align="center">Room Section</h2>
+    <div class="row">
+        <div class="col-lg-2">
+            <div class="room-box">  <!--for coloring entire two columns -->
+                <div  class="room-list">
+                    <ul class="room-items" >
+                        <li (click)="goto('Create Room')" >Create Room</li>
+                        <li (click)="goto('Delete Room')" >Delete Room</li>
+                        <li (click)="goto('View Room')" > View Room</li>
+                        <li (click)="goto('View All Room')" > View All Room</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-10">        
+            <div class="tabs" *ngIf="roomMenu=='Create Room'" align="center">
+                <form #createRoomform="ngForm" (ngSubmit)="createRoom(createRoomform.value);">
+                    <h3 align="center">Room Creation</h3>
+                    <label for="roomNo" >Room No</label>
+                    <input type="text" id="roomNo" placeholder="Enter Room Number" required
+                             class="form-control w-50 m-2" ngModel name="roomNo" #w="ngModel">
+                            <ng-container *ngIf="w.touched">
+                                            <p class="error-msg" *ngIf="w.errors?.['required']"> Room number is required</p>
+                                            
+                            </ng-container> <br> <br>
+
+                    <label for="roomStatus" >Room Status</label>
+                    <!-- <input type="text" id="roomStatus" placeholder="Room Status" required
+                             class="form-control w-50 m-2" ngModel name="roomStatus" #w="ngModel" > -->
+                             <select id="roomStatus" placeholder="Room Status" required
+                             class="form-control w-50 m-2" ngModel name="roomStatus" #w="ngModel">
+                                <option >Available</option>
+                                <option >Booked</option>
+                             </select>
+                            <ng-container *ngIf="w.touched">
+                                            <p class="error-msg" *ngIf="w.errors?.['required']"> Room Status is required</p>
+                                            
+                            </ng-container> <br> <br>
+                   
+
+
+
+                    <label for="costPerDay" >Cost per day</label>
+                    <input type="text" id="costPerDay" placeholder="Cost per day" required
+                             class="form-control w-50 m-2" ngModel name="costPerDay" #u="ngModel">
+                            <ng-container *ngIf="u.touched">
+                                            <p class="error-msg" *ngIf="u.errors?.['required']"> cost per day is required</p>
+                                            
+                            </ng-container> <br> <br>
+                
+                    <button type="submit" value="submit">Submit</button>
+                </form>  
+            </div> 
+
+            <div class="tabs" *ngIf="roomMenu=='Delete Room'" align="center">
+                <form #deleteRoomform="ngForm" (ngSubmit)="deleteRoom(deleteRoomform.value);">
+                    <h3>Room Delete</h3>
+                    <label for="roomNo" >Room No</label> 
+                    <input type="text" id="roomNo" placeholder="Room No" required
+                             class="form-control w-50 m-2" ngModel name="roomNo" #t="ngModel">
+                            <ng-container *ngIf="t.touched">
+                                            <p class="error-msg" *ngIf="t.errors?.['required']"> Room no is required</p>
+                                            
+                            </ng-container> <br> <br>
+
+                    <button type="submit" value="submit">Submit</button>
+                </form>
+            </div>
+
+            <div class="tabs" *ngIf="roomMenu=='View Room'" align="center">
+                <form #viewRoomform="ngForm" (ngSubmit)="viewRoom(viewRoomform.value);">
+                    <h3>Room Details</h3>
+                    <label for="RoomNo" >Room No</label> 
+                    <input type="text" id="RoomNo" placeholder="Room No" required
+                             class="form-control w-50 m-2" ngModel name="RoomNo" #s="ngModel">
+                            <ng-container *ngIf="s.touched">
+                                            <p class="error-msg" *ngIf="s.errors?.['required']"> Room no is required</p>
+                                            
+                            </ng-container> <br> <br>
+
+                    <button type="submit" value="submit">Submit</button>
+                </form>
+                <br> <br> <br>
+                <div class="RoomContent">
+                    <h3 align="center">Room Detail</h3>
+                    <p>Room No is {{roomDetail.roomNo}}</p>
+                    <p>Room status is {{roomDetail.roomStatus}}</p>
+                    <p>Cost per day is {{roomDetail.costPerDay}}</p>
+                </div>
+            </div>
+
+            
+            <div class="tabs" *ngIf="roomMenu=='View All Room'" align="center">
+                <form #viewAllRoomform="ngForm" (ngSubmit)="viewAllRoom();">
+                    <h3>Room List</h3>
+                   <label>To view all the rooms</label>
+                   <button type="submit" value="submit">Click here</button>
+                </form>
+
+                <br> <br> <br>
+            <div class="RoomContent">
+                <h3 align="center">Room Details</h3>
+                <table border="1">
+                     <tr>
+                        <th>Room No</th>
+                        <th>Room Status</th>
+                        <th>Cost per Day</th>
+                    </tr>
+                    
+                    <tbody >
+                        <tr *ngFor="let ar of allRoom" >
+                            <td>{{ar.roomNo}}</td>
+                            <td>{{ar.roomStatus}}</td>
+                            <td>{{ar.costPerDay}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            </div>
+            
+         
+
+        </div>
+    </div>
+</section>
+

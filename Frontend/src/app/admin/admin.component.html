@@ -1,0 +1,73 @@
+<section class="app-admin">
+    <div class="row">
+        <div class="col-lg-2">
+            <div class="admin-box">  <!--for coloring entire two columns -->
+                <div  class="admin-module-list">
+                    <ul class="admin-module-items" >
+                        <li (click)="goto('Update Profile')" >Update Profile</li>
+                        <li (click)="goto('Receptionist Section')" >Receptionist Section</li>
+                        <li (click)="goto('Booking Section')" > Booking Section</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-10">
+            <div class="tabs" *ngIf="adminMenu=='Update Profile'" align="center">
+                <h3>Update Profile</h3>
+               <form #updateAdminform="ngForm" (ngSubmit)="updateAdmin(updateAdminform.value);">
+                    <label for="adminId" > Admin Id </label> 
+                   <input type="text" id="adminId" placeholder="Admin Id" 
+                   required
+                   class="form-control w-50 m-2"
+                   ngModel
+                   name="adminId"
+                   #m="ngModel">
+                   <ng-container *ngIf=" m.touched">
+                   <p class="error-msg" *ngIf="m.errors?.['required']">admin id is required</p>
+                   <p class="error-msg" *ngIf="m.errors?.['minlength']">admin id requires min 3 chars</p>
+                   </ng-container>
+                   <br><br>
+
+
+                   <label for="adminName" >Name</label>
+                   <input type="text" id="adminName" placeholder="Enter Name" required class="form-control w-50 m-2"
+                        ngModel name="adminName" #an="ngModel">
+                    <ng-container *ngIf="an.touched">
+                         <p class="error-msg" *ngIf="an.errors?.['required']">Admin name is required</p>
+                    </ng-container><br><br>
+
+                   <label for="adminPassword" > Password </label>
+                   <input type="password" id="adminPassword" placeholder="Password" required
+                    class="form-control w-50 m-2" ngModel name="adminPassword" #ap="ngModel">
+                   <ng-container *ngIf="ap.touched">
+                         <p class="error-msg" *ngIf="ap.errors?.['required']">Admin password is required</p>
+                    </ng-container> <br> <br>
+
+                   <label for="adminContact" > Contact No </label>
+                   <input type="text" id="adminContact" placeholder="Mobile number" required 
+                        class="form-control w-50 m-2"
+                        ngModel name="adminContact" #ac="ngModel">
+                    <ng-container *ngIf="ac.touched">
+                        <p class="error-msg" *ngIf="ac.errors?.['required']">Admin contact is required</p>
+                    </ng-container> <br> <br>
+               
+                   <button type="submit" value="submit">Submit</button>
+               </form>   
+           </div>
+
+           <div class="tabs" *ngIf="adminMenu=='Receptionist Section'" > 
+                <app-recep-functions></app-recep-functions> 
+           </div>
+
+            <div class="tabs" *ngIf="adminMenu=='Booking Section'">
+                <app-booking></app-booking>
+            </div>
+            <div class="tabs" *ngIf="adminMenu=='Room Section'"> 
+                <app-room></app-room>
+             </div> 
+
+
+        </div>
+    </div>
+</section>

@@ -1,0 +1,80 @@
+.admin-box {
+    height: 650px;
+    background-color: gray;
+}
+
+.admin-module-items {
+    line-height: 30px;
+    padding-left: 0px;
+    height: 100px;
+    list-style: none;
+}
+
+.admin-module-items li {
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.admin-module-items li:hover {
+    background-color: white;
+    color: grey;
+}
+
+.onActive {
+    background-color: aqua;
+    color: black;
+}
+
+.col-lg-10 {
+    background-color: rgba(21, 128, 0, 0.642);
+}
+
+.updateprofile {
+    background-color: cornflowerblue;
+}
+
+.error-msg {
+    color: red;
+}
+
+.form-control.ng-valid.ng-touched {
+    border: 2px solid green;
+}
+
+input.ng-touched.ng-invalid {
+    border: 2px solid red;
+}
+
+.tabs1 {
+    position: absolute;
+    width: 500px;
+    background: transparent;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 15%;
+    margin-top: 50px;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 9);
+}
+
+.tabs1 form {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* gap: 20px; */
+}
+
+h3 {
+    margin-bottom: 0%;
+}
+
+.tabs1 form label {
+    color: black;
+}

@@ -1,0 +1,123 @@
+<section class="app-recep-functions">
+    <h2 align="center">  Receptionist Section  </h2>
+    <div class="row">
+        <div class="col-lg-2">
+            <div class="recep-box">  <!--for coloring entire two columns -->
+                <div  class="recep-list">
+                    <ul class="recep-items" >
+                        <li (click)="gotoRecep('Create Receptionist')" >Create Receptionist</li>
+                        <li (click)="gotoRecep('Delete Receptionist')" >Delete Receptionist</li>
+                        <li (click)="gotoRecep('View Receptionist')" > View Receptionist</li>
+                        <li (click)="gotoRecep('View All Receptionist')" >View All Receptionist</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-10">        
+            <div class="tabs" *ngIf="recepMenu=='Create Receptionist'" align="center">
+                <form #createRecepform="ngForm" (ngSubmit)="createRecep(createRecepform.value);">
+                    <h3 align="center">Receptionist Creation</h3>
+                    <label for="receptionistName" >Name</label>
+                    <input type="text" id="receptionistName" placeholder="Enter Name"  required
+                    class="form-control w-50 m-2" ngModel name="receptionistName" #rfn="ngModel">
+                    <ng-container *ngIf="rfn.touched">
+                                    <p class="error-msg" *ngIf="rfn.errors?.['required']">Receptionist name is required</p>
+                                    
+                    </ng-container> <br> <br>
+
+                    <label for="receptionistPassword" >Password</label>
+                    <input type="password" id="receptionistPassword" placeholder="Password" required
+                    class="form-control w-50 m-2" ngModel name="receptionistPassword" #rfs="ngModel">
+                    <ng-container *ngIf="rfs.touched">
+                                    <p class="error-msg" *ngIf="rfs.errors?.['required']">Receptionist password is required</p>
+                                    
+                    </ng-container><br> <br>
+
+                    <label for="receptionistContact" >Contact No</label>
+                    <input type="text" id="receptionistContact" placeholder="Mobile number"  required
+                    class="form-control w-50 m-2" ngModel name="receptionistContact" #rfc="ngModel">
+                    <ng-container *ngIf="rfc.touched">
+                                    <p class="error-msg" *ngIf="rfc.errors?.['required']">Receptionist contact is required</p>
+                                    
+                    </ng-container> <br> <br>
+                
+                    <button type="submit" value="submit">Submit</button>
+                </form>  
+            </div> 
+
+            <div class="tabs" *ngIf="recepMenu=='Delete Receptionist'" align="center">
+                <form #deleteRecepform="ngForm" (ngSubmit)="deleteRecep(deleteRecepform.value);">
+                    <h3>Receptionist Delete</h3>
+                    <label for="receptionistId" >Receptionist Id</label> 
+                    <input type="text" id="receptionistId" placeholder="Receptionist Id" required
+                    class="form-control w-50 m-2" ngModel name="receptionistId" #rfi="ngModel">
+                    <ng-container *ngIf="rfi.touched">
+                                    <p class="error-msg" *ngIf="rfi.errors?.['required']">Receptionist Id is required</p>
+                                    
+                    </ng-container> <br> <br>
+
+                    <button type="submit" value="submit">Submit</button>
+                </form>
+            </div>
+
+            <div class="tabs" *ngIf="recepMenu=='View Receptionist'" align="center">
+                <form #viewRecepform="ngForm" (ngSubmit)="viewRecep(viewRecepform.value);">
+                    <h3>Receptionist Details</h3>
+                    <label for="receptionistId" >Receptionist Id</label> 
+                    <input type="text" id="receptionistId" placeholder="Receptionist Id" required
+                    class="form-control w-50 m-2" ngModel name="receptionistId" #z="ngModel">
+                    <ng-container *ngIf="z.touched">
+                                    <p class="error-msg" *ngIf="z.errors?.['required']">Receptionist Id is required</p>
+                                    
+                    </ng-container> <br> <br>
+
+                    <button type="submit" value="submit">Submit</button>
+                </form>
+
+                <br> <br> <br>
+
+                <div class="recepDetailsContent">
+                    <h3 align="center">Receptionist Detail</h3>
+                    <p>Receptionist Id is {{recepDetail.receptionistId}}</p>
+                    <p>Receptionist Name is {{recepDetail.receptionistName}}</p>
+                    <p>Receptionist Password is {{recepDetail.receptionistPassword}}</p>
+                    <p>Receptionist contact is {{recepDetail.receptionistContact}}</p>
+                </div>
+
+            </div>
+
+            
+            <div class="tabs" *ngIf="recepMenu=='View All Receptionist'" align="center"> 
+                <form #viewAllRecepform="ngForm" (ngSubmit)="viewAllRecep();">
+                    <h3>Receptionist List</h3>
+                    <label>To view all receptionist</label>
+                    <button type="submit" value="submit">Click here</button>
+                </form>
+                <br> <br> <br>
+
+                <div class="allReceptionistContent">
+                    <h3 align="center">All Receptionist Details</h3>
+                    <table border="1">
+                         <tr>
+                            <th>Receptionist Id</th>
+                            <th>Receptionist Name</th>
+                            <th>Receptionist Password</th>
+                            <th>Receptionist Contact</th>
+                        </tr>
+                        
+                        <tbody >
+                            <tr *ngFor="let ar of allRecep" >
+                                <td>{{ar.receptionistId}}</td>
+                                <td>{{ar.receptionistName}}</td>
+                                <td>{{ar.receptionistPassword}}</td>
+                                <td>{{ar.receptionistContact}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

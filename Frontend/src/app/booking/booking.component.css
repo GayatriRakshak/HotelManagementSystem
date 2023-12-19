@@ -1,0 +1,130 @@
+.booking-box {
+    height: 650px;
+    background-color: gray;
+}
+
+.booking-items {
+    line-height: 30px;
+    padding-left: 0px;
+    height: 100px;
+    list-style: none;
+}
+
+.booking-items li {
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.booking-items li:hover {
+    background-color: white;
+    color: grey;
+}
+
+.onActive {
+    background-color: aqua;
+    color: black;
+}
+
+.col-lg-10 {
+    background-color: deepskyblue;
+}
+
+
+/* .checkIn {
+    background-color: aqua;
+} */
+
+.extensionform {
+    background-color: darksalmon;
+}
+
+.reductionform {
+    background-color: antiquewhite;
+}
+
+.checkOutform {
+    background-color: burlywood;
+}
+
+.payment {
+    background-color: cornflowerblue;
+}
+
+.viewBooking {
+    background-color: lemonchiffon;
+}
+
+.error-msg {
+    color: red;
+}
+
+.form-control.ng-valid.ng-touched {
+    border: 2px solid green;
+}
+
+input.ng-touched.ng-invalid {
+    border: 2px solid red;
+}
+
+table {
+    border: 1px solid black;
+}
+
+.tabs {
+    position: absolute;
+    width: 500px;
+    background: transparent;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 15%;
+    margin-top: 50px;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 9);
+}
+
+.tabs form {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* gap: 20px; */
+}
+
+.tabs1 {
+    position: absolute;
+    width: 800px;
+    background: transparent;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin-left: 15%; */
+    margin-top: 50px;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 9);
+}
+
+.tabs1 form {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* gap: 20px; */
+}
+
+h3 {
+    margin-bottom: 0%;
+}
+
+.tabs form label {
+    color: black;
+}

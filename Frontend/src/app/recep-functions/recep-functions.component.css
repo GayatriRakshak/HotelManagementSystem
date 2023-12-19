@@ -1,0 +1,93 @@
+.app-recep-functions {
+    background-color: blanchedalmond;
+}
+
+.recep-box {
+    height: 650px;
+    background-color: gray;
+}
+
+.recep-items {
+    line-height: 30px;
+    padding-left: 0px;
+    height: 100px;
+    list-style: none;
+}
+
+.recep-items li {
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.recep-items li:hover {
+    background-color: white;
+    color: grey;
+}
+
+.onActive {
+    background-color: aqua;
+    color: black;
+}
+
+.createRecep {
+    background-color: aqua;
+}
+
+.deleteRecep {
+    background-color: darksalmon;
+}
+
+.viewRecep {
+    background-color: antiquewhite;
+}
+
+.viewAllRecep {
+    background-color: burlywood;
+}
+
+.error-msg {
+    color: red;
+}
+
+.form-control.ng-valid.ng-touched {
+    border: 2px solid green;
+}
+
+input.ng-touched.ng-invalid {
+    border: 2px solid red;
+}
+
+.tabs {
+    position: absolute;
+    width: 500px;
+    background: transparent;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 15%;
+    margin-top: 50px;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 9);
+}
+
+.tabs form {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* gap: 20px; */
+}
+
+
+h3 {
+    margin-bottom: 0%;
+}
+
+.tabs form label {
+    color: black;
+}

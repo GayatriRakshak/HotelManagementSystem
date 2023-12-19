@@ -1,0 +1,96 @@
+ <!-- <html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Register Here</title>
+</head>
+
+<body>
+    <div class="login">
+        <form>
+            <h3>Register Here</h3>
+            <div class="text-box">
+               
+                <input type="text" placeholder="Name" required
+                             class="form-control w-50 m-2" ngModel name="name" #E="ngModel">
+                            <ng-container *ngIf="E.touched">
+                                            <p class="error-msg" *ngIf="E.errors?.['required']">  Name is required</p>
+                                            
+                            </ng-container> <br> <br>
+            </div>
+            <div class="text-box">
+                
+                <input type="email" placeholder="Email" required
+                             class="form-control w-50 m-2" ngModel name="mail" #F="ngModel">
+                            <ng-container *ngIf="F.touched">
+                                            <p class="error-msg" *ngIf="F.errors?.['required']"> Email is required</p>
+                                            
+                            </ng-container> <br> <br>
+            </div>
+            <div class="text-box">
+                
+                <input type="number"  placeholder="Contact" required
+                             class="form-control w-50 m-2" ngModel name="contact" #G="ngModel">
+                            <ng-container *ngIf="G.touched">
+                                            <p class="error-msg" *ngIf="G.errors?.['required']"> Contact is required</p>
+                                            
+                            </ng-container> <br> <br>
+            </div>
+            <div class="text-box">
+                <span class="fa fa-lock"></span>
+                <input type="password" class="password" placeholder="password" required
+                             class="form-control w-50 m-2" ngModel name="pwd" #H="ngModel">
+                            <ng-container *ngIf="H.touched">
+                                            <p class="error-msg" *ngIf="H.errors?.['required']"> Password name is required</p>
+                                            
+                            </ng-container> <br> <br> >
+                <span class="show">Show</span>
+            </div>
+            <a>Login</a>
+            <div class="btn">
+                <input type="button" value="SignUp"></div>
+
+        </form>
+    </div>  -->
+
+
+    <section>
+        <div>
+            <form #createOwnerform="ngForm" (ngSubmit)="createOwner(createOwnerform.value);" align="center">
+                <h3>Sign Up here</h3>
+               <label for="ownerId" >Owner Id</label> 
+               <input type="text" id="ownerId" placeholder="Owner Id" required
+                         class="center-box text-box" ngModel name="ownerId" #oi="ngModel">
+                        <ng-container *ngIf="oi.touched">
+                                        <p class="error-msg" *ngIf="oi.errors?.['required']"> 4 digit only</p>
+                                        
+                        </ng-container> <br><br>
+    
+               <label for="ownerName" >Name</label>
+               <input type="text" id="ownerName" placeholder="Enter Name"  required
+                         class="center-box text-box" ngModel name="ownerName" #on="ngModel">
+                        <ng-container *ngIf="on.touched">
+                                        <p class="error-msg" *ngIf="on.errors?.['required']"> Owner name is required</p>
+                                        
+                        </ng-container> <br><br>
+    
+               <label for="ownerPassword" >Password</label>
+               <input type="password" id="ownerPassword" placeholder="Password" required
+                         class="center-box text-box" ngModel name="ownerPassword" #op="ngModel">
+                        <ng-container *ngIf="op.touched">
+                                        <p class="error-msg" *ngIf="op.errors?.['required']"> Owner password is required</p>
+                                        
+                        </ng-container> <br> <br>
+           
+               <button type="submit" value="submit">Submit</button>
+            </form>
+        </div>
+     
+        <div>
+            <label>Already a member?</label>
+            <button (click)="onsubmit()">Go to Login</button>
+        </div>
+    </section>

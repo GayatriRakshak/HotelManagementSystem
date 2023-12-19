@@ -1,0 +1,60 @@
+<section class="app-receptionist">
+    <div class="row">
+        <div class="col-lg-2">
+            <div class="receptionist-box">  <!--for coloring entire two columns -->
+                <div  class="recep-module-list">
+                    <ul class="recep-module-items">
+                         <li (click)="goto('Update Profile')" >Update Profile</li>
+                        <li (click)="goto('Booking Section')" > Booking Section</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+       
+        <div class="col-lg-10"> 
+            <div class="tabs" *ngIf="recepMenu=='Update Profile'" align="center">
+                 <h3>Update Profile</h3>
+                <form #updateform="ngForm" (ngSubmit)="updateRecep(updateform.value);">
+                    <label for="receptionistId" >Receptionist Id</label> 
+                    <input type="text" id="receptionistId" placeholder=" Receptionist Id" required
+                    class="form-control w-50 m-2" ngModel name="receptionistId" #ri="ngModel">
+                    <ng-container *ngIf="ri.touched">
+                                    <p class="error-msg" *ngIf="ri.errors?.['required']">Receptionist Id is required</p>
+                                    
+                    </ng-container> <br><br>
+
+                    <label for="receptionistName" >Name</label>
+                    <input type="text" id="receptionistName" placeholder="Enter Name" required
+                    class="form-control w-50 m-2" ngModel name="receptionistName" #rn="ngModel">
+                    <ng-container *ngIf="rn.touched">
+                                    <p class="error-msg" *ngIf="rn.errors?.['required']">Receptionist name is required</p>
+                                    
+                    </ng-container> <br> <br>
+
+                    <label for="receptionistPassword" >Password</label>
+                    <input type="password" id="receptionistPassword" placeholder="Password" required
+                    class="form-control w-50 m-2" ngModel name="receptionistPassword" #rp="ngModel">
+                    <ng-container *ngIf="rp.touched">
+                                    <p class="error-msg" *ngIf="rp.errors?.['required']">Receptionist password is required</p>
+                                    
+                    </ng-container> <br> <br>
+
+                    <label for="receptionistContact" >Contact No</label>
+                    <input type="text" id="receptionistContact" placeholder="Mobile number" required
+                    class="form-control w-50 m-2" ngModel name="receptionistContact" #rc="ngModel">
+                    <ng-container *ngIf="rc.touched">
+                                    <p class="error-msg" *ngIf="rc.errors?.['required']">Receptionist contact is required</p>
+                                    
+                    </ng-container> <br> <br>
+                
+                    <button type="submit" value="submit">Submit</button>
+                </form>   
+            </div>
+
+             <div class="tabs" *ngIf="recepMenu=='Booking Section'"> 
+                <app-booking></app-booking>
+             </div> 
+        </div>
+    </div>
+</section>
+

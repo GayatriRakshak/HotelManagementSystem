@@ -1,0 +1,47 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    margin: 0;
+    font-family: "Open Sans", sans-serif;
+    font-size: 1rem;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container-fluid {
+    padding: 10%;
+}
+
+h1 {
+    font-size: 4rem;
+    font-weight: 600;
+    text-align: center;
+    color: #550202;
+    margin-bottom: 40px;
+}
+
+.story {
+    background-color: #efefef;
+    color: #000000;
+    min-height: 640px;
+    padding-top: 78px;
+}
+
+h2 {
+    color: #550202;
+    font-size: 2.4rem;
+}
+
+.story p {
+    font-size: 1.1rem;
+    line-height: 200%;
+}
+
+img {
+    width: 100%;
+}

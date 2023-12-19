@@ -1,0 +1,123 @@
+<section class="app-admin-functions">
+    <h2 align="center">Admin Section</h2>
+    <div class="row">
+        <div class="col-lg-2">
+            <div class="admin-func-box">  <!--for coloring entire two columns -->
+                <div  class="admin-func-list">
+                    <ul class="admin-func-items" >
+                        <li (click)="goto('Create Admin')" >Create Admin</li>
+                        <li (click)="goto('Delete Admin')" >Delete Admin</li>
+                        <li (click)="goto('View Admin')" >View Admin</li>
+                        <li (click)="goto('View All Admin')" >View All Admin</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-10">
+            <div class="tabs" *ngIf="adminMenu=='Create Admin'" align="center">
+                <form #createAdminform="ngForm" (ngSubmit)="createAdmin(createAdminform.value);">
+                    <h3 align="center">Admin Creation</h3>
+                    <label for="adminName" >Name</label>
+                    <input type="text" id="adminName" placeholder="Enter Name"  required
+                             class="form-control w-50 m-2" ngModel name="adminName" #r="ngModel">
+                            <ng-container *ngIf="r.touched">
+                                            <p class="error-msg" *ngIf="r.errors?.['required']"> Admin name is required</p>
+                                            
+                            </ng-container> <br> <br>
+
+                    <label for="adminPassword" >Password</label>
+                    <input type="password" id="adminPassword" placeholder="Password"  required
+                             class="form-control w-50 m-2" ngModel name="adminPassword" #q="ngModel">
+                            <ng-container *ngIf="q.touched">
+                                            <p class="error-msg" *ngIf="q.errors?.['required']"> Password is required</p>
+                                            
+                            </ng-container> <br> <br>
+
+                    <label for="adminContact" >Contact No</label>
+                    <input type="text" id="adminContact" placeholder="Mobile number"  required
+                             class="form-control w-50 m-2" ngModel name="adminContact" #A="ngModel">
+                            <ng-container *ngIf="A.touched">
+                                            <p class="error-msg" *ngIf="A.errors?.['required']"> contact number is required</p>
+                                            
+                            </ng-container> <br> <br>
+                
+                    <button type="submit" value="submit">Submit</button>
+                </form>  
+            </div> 
+
+            <div class="tabs" *ngIf="adminMenu=='Delete Admin'" align="center">
+                <form #deleteAdminform="ngForm" (ngSubmit)="deleteAdmin(deleteAdminform.value);">
+                    <h3>Admin Delete</h3>
+                    <label for="adminId" >Admin Id</label> 
+                    <input type="text" id="adminId" placeholder="Admin Id"  required
+                             class="form-control w-50 m-2" ngModel name="adminId" #B="ngModel">
+                            <ng-container *ngIf="B.touched">
+                                            <p class="error-msg" *ngIf="B.errors?.['required']"> Admin id is required</p>
+                                            
+                            </ng-container> <br> <br>
+
+                    <button type="submit" value="submit">Submit</button>
+                </form>
+            </div>
+
+            <div class="tabs" *ngIf="adminMenu=='View Admin'" align="center">
+                <form #viewAdminform="ngForm" (ngSubmit)="viewAdmin(viewAdminform.value);">
+                    <h3>Admin Details</h3>
+                    <label for="adminId" >Admin Id</label> 
+                    <input type="text" id="adminId" placeholder="Admin Id" required
+                             class="form-control w-50 m-2" ngModel name="adminId" #C="ngModel">
+                            <ng-container *ngIf="C.touched">
+                                            <p class="error-msg" *ngIf="C.errors?.['required']"> Admin id is required</p>
+                                            
+                            </ng-container>  <br> <br>
+
+                    <button type="submit" value="submit">Submit</button>
+                </form>
+
+                <br> <br> <br>
+
+                <div class="adminDetailsContent">
+                    <h3 align="center">Admin Detail</h3>
+                    <p>Admin Id is {{adminDetail.adminId}}</p>
+                    <p>Admin Name is {{adminDetail.adminName}}</p>
+                    <p>Admin Password is {{adminDetail.adminPassword}}</p>
+                    <p>Admin contact is {{adminDetail.adminContact}}</p>
+                </div>
+            </div>
+
+            
+            <div class="tabs" *ngIf="adminMenu=='View All Admin'" align="center">
+                <h3>Admin List</h3>
+                <form #viewAllAdminform="ngForm" (ngSubmit)="viewAllAdmin();">
+                    <label>To view all admins</label>
+                    <button type="submit" value="submit">Click here</button>
+                </form>
+                <br> <br> <br> <br> <br>
+
+                <div class="allAdminContent">
+                    <h3 align="center">All Admin Details</h3>
+                    <table border="1">
+                         <tr>
+                            <th>Admin Id</th>
+                            <th>Admin Name</th>
+                            <th>Admin Password</th>
+                            <th>Admin Contact</th>
+                        </tr>
+                        
+                        <tbody >
+                            <tr *ngFor="let ad of allAdmin" >
+                                <td>{{ad.adminId}}</td>
+                                <td>{{ad.adminName}}</td>
+                                <td>{{ad.adminPassword}}</td>
+                                <td>{{ad.adminContact}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
